@@ -1,41 +1,30 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
-public class UseCase2TrainConsistMgmt {
+public class UseCase3TrainConsistMgmt {
 
     public static void main(String[] args) {
 
         System.out.println("========================================");
-        System.out.println("UC2 - Add Passenger Bogies to Train");
+        System.out.println("UC3 - Track Unique Bogie IDs");
         System.out.println("========================================\n");
 
-        // Create an ArrayList to hold passenger bogies
-        List<String> passengerBogies = new ArrayList<>();
+        // Create a HashSet to store unique bogie IDs
+        Set<String> bogieIds = new HashSet<>();
 
-        // ---- CREATE (Add bogies) ----
-        passengerBogies.add("Sleeper");
-        passengerBogies.add("AC Chair");
-        passengerBogies.add("First Class");
+        // ---- ADD (with duplicates intentionally) ----
+        bogieIds.add("BG101");
+        bogieIds.add("BG102");
+        bogieIds.add("BG103");
+        bogieIds.add("BG101"); // duplicate
+        bogieIds.add("BG102"); // duplicate
 
-        // Display after adding
-        System.out.println("After Adding Bogies:");
-        System.out.println("Passenger Bogies : " + passengerBogies + "\n");
+        // Display final set
+        System.out.println("Bogie IDs after insertion (duplicates ignored):");
+        System.out.println(bogieIds + "\n");
 
-        // ---- DELETE (Remove bogie) ----
-        passengerBogies.remove("AC Chair");
+        System.out.println("Total Unique Bogies: " + bogieIds.size());
 
-        System.out.println("After Removing 'AC Chair':");
-        System.out.println("Passenger Bogies : " + passengerBogies + "\n");
-
-        // ---- READ (Check existence) ----
-        System.out.println("Checking if 'Sleeper' exists:");
-        boolean exists = passengerBogies.contains("Sleeper");
-        System.out.println("Contains Sleeper? : " + exists + "\n");
-
-        // Final state
-        System.out.println("Final Train Passenger Consist:");
-        System.out.println(passengerBogies + "\n");
-
-        System.out.println("UC2 operations completed successfully...");
+        System.out.println("\nUC3 operations completed successfully...");
     }
 }
