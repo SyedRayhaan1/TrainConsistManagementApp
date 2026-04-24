@@ -1,30 +1,43 @@
-import java.util.HashSet;
-import java.util.Set;
+import java.util.LinkedList;
 
-public class UseCase3TrainConsistMgmt {
+public class UseCase4TrainConsistMgmt {
 
     public static void main(String[] args) {
 
         System.out.println("========================================");
-        System.out.println("UC3 - Track Unique Bogie IDs");
+        System.out.println("UC4 - Maintain Train Bogie Order");
         System.out.println("========================================\n");
 
-        // Create a HashSet to store unique bogie IDs
-        Set<String> bogieIds = new HashSet<>();
+        // Create LinkedList for train consist
+        LinkedList<String> train = new LinkedList<>();
 
-        // ---- ADD (with duplicates intentionally) ----
-        bogieIds.add("BG101");
-        bogieIds.add("BG102");
-        bogieIds.add("BG103");
-        bogieIds.add("BG101"); // duplicate
-        bogieIds.add("BG102"); // duplicate
+        // ---- ADD bogies ----
+        train.add("Engine");
+        train.add("Sleeper");
+        train.add("AC");
+        train.add("Cargo");
+        train.add("Guard");
 
-        // Display final set
-        System.out.println("Bogie IDs after insertion (duplicates ignored):");
-        System.out.println(bogieIds + "\n");
+        System.out.println("Initial Train Consist:");
+        System.out.println(train + "\n");
 
-        System.out.println("Total Unique Bogies: " + bogieIds.size());
+        // ---- INSERT in middle ----
+        train.add(2, "Pantry Car");
 
-        System.out.println("\nUC3 operations completed successfully...");
+        System.out.println("After Adding Pantry Car at position 2:");
+        System.out.println(train + "\n");
+
+        // ---- REMOVE first and last ----
+        train.removeFirst();
+        train.removeLast();
+
+        System.out.println("After Removing First and Last Bogies:");
+        System.out.println(train + "\n");
+
+        // Final Output
+        System.out.println("Final Train Consist:");
+        System.out.println(train);
+
+        System.out.println("\nUC4 operations completed successfully...");
     }
 }
